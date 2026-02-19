@@ -21,76 +21,69 @@
         </div>
     </nav>
 
-    <section class="py-12 px-4 max-w-6xl mx-auto">
-        <div class="text-center mb-8">
-            <h2 class="text-3xl font-bold mb-2 text-slate-100">Live Analysis Dashboard</h2>
-            <p class="text-slate-400 text-sm">Select a specialized model below to begin visualization.</p>
-        </div>
+    <section class="py-16 px-6 max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-extrabold mb-4 bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">Subsurface Intelligence</h2>
+        <p class="text-slate-400 leading-relaxed text-lg">
+            Our Quantum Archaeology Suite bridges the gap between raw field sensors and visual intelligence. 
+            By utilizing advanced OSL (Optically Stimulated Luminescence) logic and geospatial anchoring, 
+            researchers can now visualize archaeological density across three specialized analytical scales.
+        </p>
+    </section>
 
+    <section class="py-8 px-4 max-w-6xl mx-auto">
         <div class="flex justify-center space-x-2 md:space-x-8 mb-0 border-b border-slate-800">
             <button onclick="switchModel('custom')" id="btn-custom" class="tab-btn px-4 py-4 font-bold text-[10px] md:text-xs uppercase tracking-widest active-tab">Custom Heatmaps</button>
             <button onclick="switchModel('mini')" id="btn-mini" class="tab-btn px-4 py-4 font-bold text-[10px] md:text-xs uppercase tracking-widest text-slate-500">Mini-Scale Archaeology</button>
             <button onclick="switchModel('mapper')" id="btn-mapper" class="tab-btn px-4 py-4 font-bold text-[10px] md:text-xs uppercase tracking-widest text-slate-500">Global Mapper</button>
         </div>
 
-        <div class="bg-slate-900/40 rounded-b-3xl border-x border-b border-slate-800 min-h-[900px] p-2">
-            
+        <div class="bg-slate-900/40 rounded-b-3xl border-x border-b border-slate-800 min-h-[900px] p-2 mb-12">
             <div id="model-custom" class="model-frame block">
                 <gradio-app src="https://samia08-quantum-coustamized-heatmaps.hf.space" theme_mode="dark"></gradio-app>
             </div>
-
             <div id="model-mini" class="model-frame hidden">
                 <gradio-app src="https://samia08-quantum-miniscale-arcology.hf.space" theme_mode="dark"></gradio-app>
             </div>
-
             <div id="model-mapper" class="model-frame hidden">
                 <gradio-app src="https://samia08-quantum-archaeology-mapper.hf.space" theme_mode="dark"></gradio-app>
             </div>
-
         </div>
     </section>
 
-    <footer class="py-16 text-center border-t border-slate-900 mt-20">
+    <section class="py-16 px-6 max-w-6xl mx-auto border-t border-slate-900">
+        <h3 class="text-2xl font-bold mb-8 text-center text-slate-200">System Support & Data Formats</h3>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
+                <h4 class="text-amber-500 font-bold mb-3 uppercase text-xs tracking-widest">Custom Heatmaps</h4>
+                <p class="text-slate-400 text-sm mb-6">Requires CSV upload. Column headers must include <b>latitude, longitude,</b> and <b>signal_strength</b>.</p>
+                <a href="https://raw.githubusercontent.com/q-archaeo/archaeo-scanner/refs/heads/main/sample_data.csv" download class="block text-center bg-slate-800 border border-amber-500/30 py-2 rounded-lg text-amber-500 text-xs font-bold hover:bg-amber-500 hover:text-slate-900 transition">DOWNLOAD CSV TEMPLATE</a>
+            </div>
+            <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
+                <h4 class="text-amber-500 font-bold mb-3 uppercase text-xs tracking-widest">Mini-Scale Suite</h4>
+                <p class="text-slate-400 text-sm">Direct input system. Optimized for localized site grids (100m x 100m). Adjust density and depth sliders to visualize layers.</p>
+            </div>
+            <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
+                <h4 class="text-amber-500 font-bold mb-3 uppercase text-xs tracking-widest">Global Mapper</h4>
+                <p class="text-slate-400 text-sm">Large-scale mapping. Enter GPS coordinates or city names to anchor subsurface data to real-world topography.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-16 text-center border-t border-slate-900 mt-10">
         <p class="text-slate-600 text-[10px] tracking-widest uppercase mb-2">System Online &bull; Encrypted Access</p>
-        <p class="text-slate-500 text-xs">Developed for Advanced Subsurface Visualization &copy; 2026</p>
+        <p class="text-slate-500 text-xs font-medium">Developed for Advanced Subsurface Visualization &copy; 2026</p>
     </footer>
 
     <script>
         function switchModel(modelId) {
-            // Hide all models
             document.querySelectorAll('.model-frame').forEach(el => {
                 el.classList.add('hidden');
                 el.classList.remove('block');
             });
-            
-            // Show selected model
             const selected = document.getElementById('model-' + modelId);
             selected.classList.remove('hidden');
             selected.classList.add('block');
 
-            <section class="py-16 px-6 max-w-6xl mx-auto border-t border-slate-900">
-    <h3 class="text-2xl font-bold mb-8 text-center text-slate-200">Model Support Center</h3>
-    
-    <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
-            <h4 class="text-amber-500 font-bold mb-3 uppercase text-xs tracking-widest">For Custom Heatmaps</h4>
-            <p class="text-slate-400 text-sm mb-6">Requires a CSV file with columns for <b>lat, lon, and signal_strength</b>. Use the button below to get the correct format.</p>
-            <a href="https://raw.githubusercontent.com/q-archaeo/archaeo-scanner/refs/heads/main/sample_data.csv" download class="block text-center bg-slate-800 border border-amber-500/30 py-2 rounded-lg text-amber-500 text-xs font-bold hover:bg-amber-500 hover:text-slate-900 transition">DOWNLOAD CSV TEMPLATE</a>
-        </div>
-
-        <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
-            <h4 class="text-amber-500 font-bold mb-3 uppercase text-xs tracking-widest">For Mini-Scale Suite</h4>
-            <p class="text-slate-400 text-sm">No file upload needed. This model uses <b>Direct Input</b>. Simply enter your localized grid coordinates (0-100m) and the depth values into the sliders.</p>
-        </div>
-
-        <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
-            <h4 class="text-amber-500 font-bold mb-3 uppercase text-xs tracking-widest">For Global Mapper</h4>
-            <p class="text-slate-400 text-sm">Real-time visualization. Enter a <b>City or Country name</b> or paste GPS coordinates in Decimal format to anchor your quantum scan results to a map.</p>
-        </div>
-    </div>
-</section>
-
-            // Update button styles
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('active-tab');
                 btn.classList.add('text-slate-500');
@@ -99,7 +92,5 @@
             document.getElementById('btn-' + modelId).classList.remove('text-slate-500');
         }
     </script>
-
 </body>
 </html>
-
