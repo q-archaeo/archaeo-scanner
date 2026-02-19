@@ -3,41 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Archaeo-Scanner | Free Access</title>
+    <title>Quantum Archaeology Suite</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .active-tab { border-bottom: 4px solid #f59e0b; color: #f59e0b; }
+        iframe { background: #0f172a; border-radius: 0 0 1.5rem 1.5rem; }
+    </style>
 </head>
-<body class="bg-slate-900 text-white font-sans">
+<body class="bg-slate-950 text-white font-sans scroll-smooth">
 
-    <nav class="p-6 flex justify-between items-center border-b border-slate-800">
-        <h1 class="text-xl font-bold tracking-widest text-amber-500">Q-ARCHAEOLOGY</h1>
-        <a href="https://huggingface.co/spaces/YOUR_USERNAME/YOUR_SPACE_NAME" target="_blank" class="bg-amber-500 text-slate-900 px-4 py-2 rounded font-bold text-sm">OPEN SCANNER</a>
+    <nav class="p-6 border-b border-slate-800 bg-slate-900/50 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-black tracking-tighter text-amber-500">Q-ARCHAEOLOGY <span class="text-slate-500 font-light text-sm">PRO SUITE</span></h1>
+            <a href="mailto:contact@yourdomain.com" class="text-xs border border-slate-700 px-4 py-2 rounded-full hover:bg-slate-800 transition">Contact Research Team</a>
+        </div>
     </nav>
 
-    <header class="py-20 px-10 text-center">
-        <h2 class="text-4xl md:text-6xl font-extrabold mb-6">Free Subsurface <br><span class="text-amber-500">Quantum Visualization</span></h2>
-        <p class="max-w-2xl mx-auto text-slate-400 text-lg mb-10">
-            A specialized tool for archaeologists to map grid data and analyze site density with global GPS anchoring.
-        </p>
-        
-        <a href="https://huggingface.co/spaces/YOUR_USERNAME/YOUR_SPACE_NAME" target="_blank" class="inline-block bg-white text-slate-900 px-10 py-4 rounded-full font-bold text-xl hover:bg-amber-500 transition-all">
-            Launch Professional Model
-        </a>
-    </header>
+    <section class="py-12 px-4 max-w-6xl mx-auto">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold mb-2">Select Analytical Model</h2>
+            <p class="text-slate-400">Choose the specific tool for your current field requirements.</p>
+        </div>
 
-    <section class="py-10 px-10 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <div class="bg-slate-800 p-6 rounded-lg border-l-4 border-amber-500">
-            <h3 class="font-bold text-lg mb-2">Metric Grids</h3>
-            <p class="text-sm text-slate-400">1m x 1m overlays for precise excavation planning.</p>
+        <div class="flex justify-center space-x-2 md:space-x-8 mb-0 border-b border-slate-800">
+            <button onclick="switchModel('world')" id="btn-world" class="tab-btn px-6 py-4 font-bold text-sm uppercase tracking-widest active-tab">Global Mapper</button>
+            <button onclick="switchModel('indoor')" id="btn-indoor" class="tab-btn px-6 py-4 font-bold text-sm uppercase tracking-widest text-slate-500">Building Scan</button>
+            <button onclick="switchModel('sensor')" id="btn-sensor" class="tab-btn px-6 py-4 font-bold text-sm uppercase tracking-widest text-slate-500">Data Processor</button>
         </div>
-        <div class="bg-slate-800 p-6 rounded-lg border-l-4 border-amber-500">
-            <h3 class="font-bold text-lg mb-2">GPS Anchor</h3>
-            <p class="text-sm text-slate-400">Automatic City and Country identification for site records.</p>
-        </div>
-        <div class="bg-slate-800 p-6 rounded-lg border-l-4 border-amber-500">
-            <h3 class="font-bold text-lg mb-2">Sensor Ready</h3>
-            <p class="text-sm text-slate-400">Supports CSV uploads from GPR and Magnetometry units.</p>
+
+        <div class="relative shadow-2xl">
+            <div id="model-world" class="model-frame block">
+                <iframe src="<iframe
+	src="https://samia08-quantum-archaeology-mapper.hf.space"
+	frameborder="0"
+	width="850"
+	height="450"
+></iframe>
+" width="100%" height="800px" frameborder="0"></iframe>
+            </div>
+
+            <div id="model-indoor" class="model-frame hidden">
+                <iframe src="<iframe
+	src="https://samia08-quantum-miniscale-arcology.hf.space"
+	frameborder="0"
+	width="850"
+	height="450"
+></iframe>
+" width="100%" height="800px" frameborder="0"></iframe>
+            </div>
+
+            <div id="model-sensor" class="model-frame hidden">
+                <iframe src="<iframe
+	src="https://samia08-quantum-coustamized-heatmaps.hf.space"
+	frameborder="0"
+	width="850"
+	height="450"
+></iframe>
+" width="100%" height="800px" frameborder="0"></iframe>
+            </div>
         </div>
     </section>
+
+    <footer class="py-20 text-center border-t border-slate-900">
+        <p class="text-slate-600 text-sm">Quantum Archaeology Analytical Suite &copy; 2026</p>
+    </footer>
+
+    <script>
+        function switchModel(modelId) {
+            // Hide all frames
+            document.querySelectorAll('.model-frame').forEach(frame => frame.classList.add('hidden'));
+            document.querySelectorAll('.model-frame').forEach(frame => frame.classList.remove('block'));
+            
+            // Deactivate all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active-tab');
+                btn.classList.add('text-slate-500');
+            });
+
+            // Show selected frame
+            document.getElementById('model-' + modelId).classList.remove('hidden');
+            document.getElementById('model-' + modelId).classList.add('block');
+
+            // Activate selected button
+            document.getElementById('btn-' + modelId).classList.add('active-tab');
+            document.getElementById('btn-' + modelId).classList.remove('text-slate-500');
+        }
+    </script>
 
 </body>
 </html>
